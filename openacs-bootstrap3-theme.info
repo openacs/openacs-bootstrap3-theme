@@ -9,23 +9,29 @@
     <implements-subsite-p>f</implements-subsite-p>
     <inherit-templates-p>f</inherit-templates-p>
     
-    <version name="5.9.0d3" url="http://openacs.org/repository/download/apm/openacs-bootstrap3-theme-5.9.0d3.apm">
+    <version name="5.9.1d1" url="http://openacs.org/repository/download/apm/openacs-bootstrap3-theme-5.9.1d1.apm">
         <owner url="mailto:manderga@wu.ac.at">manderga</owner>
-        <summary>Provides a Theme based on Twitter Bootstrap</summary>
-        <release-date>2015-08-21</release-date>
-        <description format="text/plain">Provides a Theme based on Twitter Bootstrap</description>
+        <summary>Theme for OpenACS based on Twitter Bootstrap 3</summary>
+        <release-date>2016-07-09</release-date>
+	<vendor url="http://wu.ac.at">WU Vienna</vendor>
+        <description format="text/plain">This package provides a Theme based on
+	Twitter Bootstrap 3. The them can be activated via
+	/admin/configure and it can be configured via
+	/shared/parameters .
+	This theme is currently in use at openacs.org
+	</description>
         <license>GPL version 2</license>
-        <maturity>1</maturity>
+        <maturity>2</maturity>
 
-        <provides url="openacs-bootstrap3-theme" version="5.9.0d3"/>
-        <!-- <extends url="acs-subsite" version="5.9.0d1"/> -->
+        <provides url="openacs-bootstrap3-theme" version="5.9.1d1"/>
+        <requires url="acs-kernel" version="5.9.0"/>
 
         <callbacks>
             <callback type="after-install"  proc="openacs_bootstrap3_theme::apm::after_install"/>
             <callback type="before-uninstall"  proc="openacs_bootstrap3_theme::apm::before_uninstall"/>
         </callbacks>
         <parameters>
-        <!-- No version parameters -->
+        <!-- No package parameters -->
         </parameters>
 
     </version>
