@@ -11,7 +11,7 @@
         <ul class="list-group">
         <multiple name="channels">
             <li class="list-group-item well well-sm">
-                <a href="@channels.name@/" class="h3"><i class="glyphicon glyphicon-folder-open"></i>&nbsp; @channels.label@</a> <span class="badge">@channels.tag@</span>
+                <a href="@channels.name@/" class="h3"><em class="glyphicon glyphicon-folder-open"></em>&nbsp; @channels.label@</a> <span class="badge">@channels.tag@</span>
             </li>
         </multiple>
         </ul>

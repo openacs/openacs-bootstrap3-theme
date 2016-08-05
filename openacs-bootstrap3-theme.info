@@ -15,7 +15,7 @@
         <release-date>2016-07-09</release-date>
 	<vendor url="http://wu.ac.at">WU Vienna</vendor>
         <description format="text/plain">This package provides a Theme based on
-	Twitter Bootstrap 3. The them can be activated via
+	Twitter Bootstrap 3. The theme can be activated via
 	/admin/configure and it can be configured via
 	/shared/parameters .
 	This theme is currently in use at openacs.org
