@@ -4,7 +4,7 @@
 <package key="openacs-bootstrap3-theme" url="http://openacs.org/repository/apm/packages/openacs-bootstrap3-theme" type="apm_service">
     <package-name>OpenACS Bootstrap 3 Theme</package-name>
     <pretty-plural>OpenACS Bootstrap 3 Themes</pretty-plural>
-    <initial-install-p>t</initial-install-p>
+    <initial-install-p>f</initial-install-p>
     <singleton-p>t</singleton-p>
     <implements-subsite-p>f</implements-subsite-p>
     <inherit-templates-p>f</inherit-templates-p>
@@ -25,6 +25,7 @@
 
         <provides url="openacs-bootstrap3-theme" version="5.9.1d1"/>
         <requires url="acs-kernel" version="5.9.0"/>
+        <requires url="acs-subsite" version="5.9.0"/>
 
         <callbacks>
             <callback type="after-install"  proc="openacs_bootstrap3_theme::apm::after_install"/>
