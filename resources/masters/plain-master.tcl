@@ -70,10 +70,16 @@ if { [info exists prefer_text_only_p]
 # User messages
 util_get_user_messages -multirow user_messages
 
+#
+# Security settings
+#
 set csrf [security::csrf::new]
 
 security::csp::require img-src ipv6-test.com
+
 security::csp::require style-src maxcdn.bootstrapcdn.com
-security::csp::require font-src maxcdn.bootstrapcdn.com
+security::csp::require script-src maxcdn.bootstrapcdn.com
+
 security::csp::require font-src 'self'
 security::csp::require font-src maxcdn.bootstrapcdn.com
+
