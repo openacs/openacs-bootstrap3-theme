@@ -73,7 +73,7 @@ util_get_user_messages -multirow user_messages
 set csrf [security::csrf::new]
 
 security::csp::require img-src ipv6-test.com
-security::csp::require style-src netdna.bootstrapcdn.com
-security::csp::require font-src netdna.bootstrapcdn.com
+security::csp::require style-src maxcdn.bootstrapcdn.com
+security::csp::require font-src maxcdn.bootstrapcdn.com
 security::csp::require font-src 'self'
-security::csp::require font-src netdna.bootstrapcdn.com
+security::csp::require font-src maxcdn.bootstrapcdn.com
