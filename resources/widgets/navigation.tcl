@@ -24,7 +24,7 @@ if { [template::multirow exists navigation] } {
 #    template::multirow get navigation $i
 #    ns_log notice [array get navigation]
 #}
-array set is_submenu [list]
+array set submenus [list]
 for {set i 1} {$i <= [template::multirow size navigation]} {incr i} {
     template::multirow get navigation $i
     if {$navigation(display_template) ne ""} {
@@ -32,14 +32,21 @@ for {set i 1} {$i <= [template::multirow size navigation]} {incr i} {
         set item_html [template::adp_eval template_code]
         set navigation(display_template) $item_html
     } else {
-        set item_html "<li><a href='$navigation(href)'>$navigation(label)</a></li>"
+        set item_html "<li><a href='$navigation(href)'>[ns_quotehtml $navigation(label)]</a></li>"
     }
-    array set is_submenu [list $navigation(parent) "[lindex [array get is_submenu $navigation(parent)] 1] $item_html"]
-
+    set nav_parent $navigation(parent)
+    if {$nav_parent ne ""} {
+	if {[info exists submenus($nav_parent)]} {
+	    set submenus($nav_parent) "$submenus($nav_parent) $item_html"
+	} else {
+	    set submenus($nav_parent) ""
+	}
+    }
 }
 
-template::multirow extend navigation has_submenu
+template::multirow extend navigation submenu
 template::multirow foreach navigation {
-    set has_submenu [lindex [array get is_submenu $name] 1]
-    # ds_comment "Submenu: $has_submenu"
+    if {[info exists submenus($name)]} {
+	set submenu $submenus($name)
+    }
 }
