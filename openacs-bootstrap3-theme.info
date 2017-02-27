@@ -9,10 +9,10 @@
     <implements-subsite-p>f</implements-subsite-p>
     <inherit-templates-p>f</inherit-templates-p>
     
-    <version name="5.9.1b1" url="http://openacs.org/repository/download/apm/openacs-bootstrap3-theme-5.9.1b1.apm">
+    <version name="5.9.1b3" url="http://openacs.org/repository/download/apm/openacs-bootstrap3-theme-5.9.1b3.apm">
         <owner url="mailto:manderga@wu.ac.at">manderga</owner>
         <summary>Theme for OpenACS based on Twitter Bootstrap 3</summary>
-        <release-date>2016-09-10</release-date>
+        <release-date>2017-02-27</release-date>
 	<vendor url="http://wu.ac.at">WU Vienna</vendor>
         <description format="text/plain">This package provides a Theme based on
 	Twitter Bootstrap 3. The theme can be activated via
@@ -23,7 +23,7 @@
         <license>GPL version 2</license>
         <maturity>2</maturity>
 
-        <provides url="openacs-bootstrap3-theme" version="5.9.1b1"/>
+        <provides url="openacs-bootstrap3-theme" version="5.9.1b3"/>
         <requires url="acs-kernel" version="5.9.1b1"/>
         <requires url="acs-subsite" version="5.9.1b1"/>
 
