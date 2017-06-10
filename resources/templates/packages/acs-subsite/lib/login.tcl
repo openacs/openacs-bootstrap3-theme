@@ -1,13 +1,23 @@
-# Present a login box
-#
-# Expects:
-#   subsite_id - optional, defaults to nearest subsite
-#   return_url - optional, defaults to Your Account
-# Optional:
-#   authority_id
-#   username
-#   email
-#
+ad_include_contract {
+    ADP include for presentin a login box
+
+    @param subsite_id - optional, defaults to nearest subsite
+    @param return_url - optional, defaults to Your Account
+    @param authority_id
+    @param id host_node_id optional id of subsite to login on
+    @param persistent_p
+    @param username
+    @param email
+} {
+    {subsite_id:naturalnum ""}
+    {return_url:localurl,trim ""}
+    {authority_id:naturalnum ""}
+    {host_node_id:naturalnum ""}
+    {persistent_p:boolean ""}
+    {username ""}
+    {email ""}
+}
+
 if {[ns_conn method] eq "POST"} {
     ad_log notice "BOOTSTRAP LOGIN\nheaders: [ns_set array [ns_conn headers]]\nPOST data\n[ns_conn content]"
 }
@@ -21,8 +31,7 @@ set self_registration [parameter::get_from_package_key \
                                   -package_key acs-authentication \
 			          -parameter AllowSelfRegister \
 			          -default 1]   
-
-if { ![info exists subsite_id] || $subsite_id eq "" } {
+if { $subsite_id eq "" } {
     set subsite_id [subsite::get_element -element object_id]
 }
 
@@ -30,14 +39,6 @@ set email_forgotten_password_p [parameter::get \
                                     -parameter EmailForgottenPasswordP \
                                     -package_id $subsite_id \
                                     -default 1]
-
-if { ![info exists username] } {
-    set username {}
-}
-
-if { ![info exists email] } {
-    set email {}
-}
 
 if { $email eq "" && $username eq "" && [ad_conn untrusted_user_id] != 0 } {
     acs_user::get -user_id [ad_conn untrusted_user_id] -array untrusted_user
@@ -71,7 +72,7 @@ if { $allow_persistent_login_p } {
 set subsite_url [subsite::get_element -element url]
 set system_name [ad_system_name]
 
-if { [info exists return_url] && $return_url ne "" } {
+if { $return_url ne "" } {
     if { [util::external_url_p $return_url] } {
       ad_returnredirect -message "only urls without a host name are permitted" "."
       ad_script_abort
@@ -82,7 +83,7 @@ if { [info exists return_url] && $return_url ne "" } {
 
 set authority_options [auth::authority::get_authority_options]
 
-if { ![info exists authority_id] || $authority_id eq "" } {
+if { $authority_id eq "" } {
     set authority_id [lindex $authority_options 0 1]
 }
 
@@ -208,12 +209,7 @@ ad_form -extend -name login -on_request {
         ad_script_abort
     }
 
-    if { ![info exists authority_id] || $authority_id eq "" } {
-        # Will be defaulted to local authority
-        set authority_id {}
-    }
-
-    if { ![info exists persistent_p] || $persistent_p eq "" } {
+    if { $persistent_p eq "" } {
         set persistent_p "f"
     }
     if {![element exists login email]} {
@@ -228,16 +224,6 @@ ad_form -extend -name login -on_request {
         ad_script_abort
     }
 
-    ns_log notice "DEBUG [list auth::authenticate \
-                             -return_url $return_url \
-                             -authority_id $authority_id \
-                             -email [string trim $email] \
-                             -first_names $first_names \
-                             -last_name $last_name \
-                             -username [string trim $username] \
-                             -password $password \
-                             -persistent=[expr {$allow_persistent_login_p && [template::util::is_true $persistent_p]}]]"
-    
     array set auth_info [auth::authenticate \
                              -return_url $return_url \
                              -authority_id $authority_id \
@@ -309,12 +295,10 @@ ad_form -extend -name login -on_request {
 		
 	    } else {
 		# Display the message on a separate page
-            ad_returnredirect \
-                -message $auth_info(account_message) \
-                -html \
-                [export_vars \
-                     -base "[subsite::get_element \
-                                -element url]register/account-closed"]
+		ad_returnredirect \
+		    -message $auth_info(account_message) \
+		    -html \
+		    [export_vars -base "[subsite::get_element -element url]register/account-closed"]
 		ad_script_abort
 	    }
         }
@@ -325,13 +309,13 @@ ad_form -extend -name login -on_request {
 
     # Handle account_message
     if { [info exists auth_info(account_message)] && $auth_info(account_message) ne "" } {
-        ad_returnredirect [export_vars -base "[subsite::get_element -element url]register/account-message" { { message $auth_info(account_message) } return_url }]
+        ad_returnredirect [export_vars -base "[subsite::get_element -element url]register/account-message" {
+	    { message $auth_info(account_message) } return_url
+	}]
         ad_script_abort
-    } else {
-	if {![info exists auth_info(element_messages)]} {
-	    # No message
-	    ad_returnredirect $return_url
-	    ad_script_abort
-	}
+    } elseif {![info exists auth_info(element_messages)]} {
+	# No message
+	ad_returnredirect $return_url
+	ad_script_abort
     }
 }
