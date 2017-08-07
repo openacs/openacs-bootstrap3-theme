@@ -15,7 +15,7 @@
         <li><a aria-label="Previous" href="@url_previous@" title="Previous"><span aria-hidden="true">&lsaquo;</span></a></li>
       </else>
       <multiple name="results_paginator">
-        <if @results_paginator.current_p@>
+        <if @results_paginator.current_p;literal@ true>
           <li class="active"><a href="#">@results_paginator.item@ <span class="sr-only">(current)</span></a></li>
         </if>
         <else>

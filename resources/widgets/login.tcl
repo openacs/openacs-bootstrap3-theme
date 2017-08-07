@@ -9,10 +9,17 @@ if {[catch {
 set system_name [ad_system_name]
 
 # User Portrait
-set portrait ""
 set portrait_id [acs_user::get_portrait_id -user_id $user_id]
 if {$portrait_id == 0} {
-    set src http://www.gravatar.com/avatar/md5?size=35&d=mm
+    set email [party::email -party_id $user_id]
+    if {[info commands ns_md5] ne ""} {
+	set md5 [string tolower [ns_md5 $email]]
+    } else {
+	package require md5
+	set md5 [string tolower [md5::Hex [md5::md5 -- $email]]]
+    }
+    set src //www.gravatar.com/avatar/$md5?size=35&d=mm
+    security::csp::require img-src www.gravatar.com
 } else {
     set src [export_vars -base /shared/portrait-bits.tcl {user_id {size x50}}]
 }
@@ -25,8 +32,8 @@ set whos_online_url "[subsite::get_element -element url]shared/whos-online"
 set return_url [ad_return_url]
 if {!$user_id} {
     set login_p 0
-    set login_url "/register/?[export_vars return_url]"
-    set register_url "/register/user-new?[export_vars return_url]"
+    set login_url [export_vars -base /register/ return_url]
+    set register_url [export_vars -base /register/user-new return_url]
 } else {
     set login_p 1
     acs_user::get -user_id $user_id -array user

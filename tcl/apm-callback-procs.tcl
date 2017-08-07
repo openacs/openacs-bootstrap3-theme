@@ -15,7 +15,7 @@ ad_proc openacs_bootstrap3_theme::apm::after_install {} {
             -template tabbed-master \
             -css {
 {-href /resources/acs-subsite/site-master.css -media all -order 0}
-{-href //netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css -media all -order 1}
+{-href //maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css -media all -order 1}
 {-href /resources/openacs-bootstrap3-theme/css/main.css -media all -order 2}
 {-href /resources/openacs-bootstrap3-theme/css/color/blue.css -media all -order 3}
 {-href /resources/acs-templating/forms.css -media all -order 4}
@@ -23,7 +23,7 @@ ad_proc openacs_bootstrap3_theme::apm::after_install {} {
             } \
             -js {
 {-src "/resources/openacs-bootstrap3-theme/js/jquery-1.11.3.min.js" -order 1}
-{-src "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" -order 2}
+{-src "//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" -order 2}
             } \
             -form_template standard \
             -list_template table \
@@ -38,7 +38,7 @@ ad_proc openacs_bootstrap3_theme::apm::after_install {} {
             -template tabbed-master-turquois \
             -css {
 {-href /resources/acs-subsite/site-master.css -media all -order 0}
-{-href //netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css -media all -order 1}
+{-href //maxcdn.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css -media all -order 1}
 {-href /resources/openacs-bootstrap3-theme/css/main.css -media all -order 2}
 {-href /resources/openacs-bootstrap3-theme/css/color/turquois.css -media all -order 3}
 {-href /resources/acs-templating/forms.css -media all -order 4}
@@ -46,7 +46,7 @@ ad_proc openacs_bootstrap3_theme::apm::after_install {} {
             } \
             -js {
 {-src "/resources/openacs-bootstrap3-theme/js/jquery-1.11.3.min.js" -order 1}
-{-src "//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" -order 2}
+{-src "//maxcdn.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" -order 2}
             } \
             -form_template standard \
             -list_template table \

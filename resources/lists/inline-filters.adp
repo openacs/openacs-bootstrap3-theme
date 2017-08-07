@@ -8,7 +8,7 @@
     
             <group column="filter_name">
     
-              <if @filters.selected_p@ true>
+              <if @filters.selected_p;literal@ true>
                 <span class="btn btn-primary">@filters.label@</span>
               </if>
               <else>
