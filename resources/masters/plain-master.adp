@@ -3,6 +3,7 @@
 <if @body@ defined><property name="&body">body</property></if>
 <if @head@ not nil><property name="head">@head;noquote@</property></if>
 <if @focus@ not nil><property name="focus">@focus;noquote@</property></if>
+<if @displayed_object_id@ not nil><property name="displayed_object_id">@displayed_object_id;literal@</property></if>
 
 <if @signatory@ defined>
     <property name="signatory">@signatory;noquote@</property>
