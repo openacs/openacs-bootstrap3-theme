@@ -4,7 +4,7 @@ if {[catch {
    set user_name [person::name -person_id $untrusted_user_id]
 } errorMsg]} {
    ns_log notice "Cannot determine user_name for user-id $untrusted_user_id"
-   set use_name "Unknown"
+   set user_name "Unknown"
 }
 set system_name [ad_system_name]
 
