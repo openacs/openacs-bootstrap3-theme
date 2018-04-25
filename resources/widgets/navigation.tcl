@@ -6,7 +6,7 @@ set subsite_name [lang::util::localize [subsite::get_element -element instance_n
 if { [template::multirow exists navigation] } {
     set selected_main_nav_item ""
     if { ![info exists navigation_groups] } {
-        set navigation_groups [list]
+        set navigation_groups {}
     }
     for {set i 1} {$i <= [template::multirow size navigation]} {incr i} {
         template::multirow get navigation $i
@@ -24,7 +24,7 @@ if { [template::multirow exists navigation] } {
 #    template::multirow get navigation $i
 #    ns_log notice [array get navigation]
 #}
-array set submenus [list]
+array set submenus {}
 for {set i 1} {$i <= [template::multirow size navigation]} {incr i} {
     template::multirow get navigation $i
     if {$navigation(display_template) ne ""} {
