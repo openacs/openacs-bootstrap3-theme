@@ -1,7 +1,7 @@
 set user_id [ad_conn user_id]
 set untrusted_user_id [ad_conn untrusted_user_id]
 if {[catch {
-   set user_name [person::name -person_id $untrusted_user_id]
+    set user_name [acs_user::get_element -user_id $untrusted_user_id -element name]
 } errorMsg]} {
    ns_log notice "Cannot determine user_name for user-id $untrusted_user_id"
    set user_name "Unknown"
