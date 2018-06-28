@@ -1,8 +1,7 @@
 set user_id [ad_conn user_id]
 set untrusted_user_id [ad_conn untrusted_user_id]
-if {[catch {
-    set user_name [person::name -person_id $untrusted_user_id]
-} errorMsg]} {
+set user_name [person::name -person_id $untrusted_user_id]
+if {$user_name eq ""} {
     ns_log notice "Cannot determine user_name for user-id $untrusted_user_id"
     set user_name "Unknown"
 }
@@ -36,8 +35,7 @@ if {!$user_id} {
     set register_url [export_vars -base /register/user-new return_url]
 } else {
     set login_p 1
-    acs_user::get -user_id $user_id -array user
-    # set name "$user(first_names) $user(last_name)"
-    set name "$user(first_names)"
+    #set name [person::name -person_id $user_id]
+    set name [person::get_person_info -person_id $user_id -element first_names]
 }
 
