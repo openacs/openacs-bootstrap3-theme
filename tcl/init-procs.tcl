@@ -13,7 +13,7 @@ namespace eval openacs_bootstrap3_theme {
 	#
 	# Provide paths for loading either via resources or CDN
 	#
-	set resourceDir [acs_package_root_dir openacs-bootstrap3-theme/www/resources]/bootstrap
+	set resourceDir [acs_package_root_dir openacs-bootstrap3-theme/www/resources/bootstrap]
 	set resourceUrl /resources/openacs-bootstrap3-theme/bootstrap
 	set cdn         "//maxcdn.bootstrapcdn.com/bootstrap"
 	set version     $openacs_bootstrap3_theme::bootstrap_version
@@ -27,12 +27,17 @@ namespace eval openacs_bootstrap3_theme {
 	}
 
 	lappend result \
-	    cdn $cdn \
 	    resourceDir $resourceDir \
+	    cdn $cdn \
+	    cdnHost $cdnHost \
 	    prefix $prefix \
 	    cssFiles {css/bootstrap.min.css} \
 	    jsFiles  {js/bootstrap.min.js} \
-	    extraFiles {fonts/glyphicons-halflings-regular.woff fonts/glyphicons-halflings-regular.ttf}
+	    extraFiles {fonts/glyphicons-halflings-regular.woff fonts/glyphicons-halflings-regular.ttf} \
+	    urnMap {
+		urn:ad:css:bootstrap3 css/bootstrap.min.css
+		urn:ad:js:bootstrap3  js/bootstrap.min.js
+	    }
 
 	return $result
     }

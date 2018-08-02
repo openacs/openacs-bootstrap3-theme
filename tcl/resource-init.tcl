@@ -10,19 +10,10 @@ set version $::openacs_bootstrap3_theme::bootstrap_version
 #
 set resource_info [::openacs_bootstrap3_theme::resource_info]
 set prefix        [dict get $resource_info prefix]
-set regnames      {bootstrap.min.js bootstrap3 bootstrap.min.css bootstrap3}
 
-foreach file [concat \
-		  [dict get $resource_info cssFiles] \
-		  [dict get $resource_info jsFiles] \
-	     ] {
-    set fn [file tail $file]
-    if {[dict exists $regnames $fn]} {
-	set ext [string trimleft [file extension $fn] .]
-	template::register_urn \
-	    -urn urn:ad:${ext}:[dict get $regnames $fn] \
-	    -resource $prefix/$file
-    } else {
-	ns_log warning "openacs-bootstrap3_theme: not registering URN for $file"
-    }
+foreach urn [dict keys [dict get $resource_info urnMap]] {
+    ns_log notice "TEST -urn $urn -resource $prefix/[dict get $resource_info urnMap $urn]"
+    template::register_urn \
+	-urn $urn \
+	-resource $prefix/[dict get $resource_info urnMap $urn]
 }

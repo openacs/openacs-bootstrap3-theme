@@ -53,9 +53,8 @@ ad_proc openacs_bootstrap3_theme::apm::after_install {} {
 	    -list_filter_template filters \
 	    -dimensional_template dimensional \
 	    -resource_dir /packages/openacs-bootstrap3-theme/resources \
-            -streaming_head tabbed-streaming-head-turquois
+	    -streaming_head tabbed-streaming-head-turquois
     }
-
 }
 
 ad_proc -public openacs_bootstrap3_theme::apm::before_uninstall {} {
