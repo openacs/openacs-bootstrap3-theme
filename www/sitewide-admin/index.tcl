@@ -16,7 +16,7 @@ set version $::openacs_bootstrap3_theme::bootstrap_version
 # locally installed, offer a link for download.
 #
 set resource_info [::openacs_bootstrap3_theme::resource_info]
-set resource_dir  [dict get $resource_info resource_dir]
+set resource_dir  [dict get $resource_info resourceDir]
 set cdn           [dict get $resource_info cdn]
 
 #
