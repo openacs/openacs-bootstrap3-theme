@@ -7,7 +7,8 @@ namespace eval openacs_bootstrap3_theme {
 	packages. The goal is to deliver resources either from the
 	local file system, or from CDN.
 
-	@return dict containing cdn, cdnHost, resourceDir, prefix, cssFiles, jsFiles and extraFiles.
+	@return dict containing resourceDir, resourceName, cdn,
+	        cdnHost, prefix, cssFiles, jsFiles and extraFiles.
 
     } {
 	#
@@ -27,6 +28,7 @@ namespace eval openacs_bootstrap3_theme {
 	}
 
 	lappend result \
+	    resourceName "Bootstrap 3" \
 	    resourceDir $resourceDir \
 	    cdn $cdn \
 	    cdnHost $cdnHost \
