@@ -35,7 +35,11 @@ namespace eval openacs_bootstrap3_theme {
 	    prefix $prefix \
 	    cssFiles {css/bootstrap.min.css} \
 	    jsFiles  {js/bootstrap.min.js} \
-	    extraFiles {fonts/glyphicons-halflings-regular.woff fonts/glyphicons-halflings-regular.ttf} \
+	    extraFiles {
+		fonts/glyphicons-halflings-regular.woff
+		fonts/glyphicons-halflings-regular.woff2
+		fonts/glyphicons-halflings-regular.ttf
+	    } \
 	    urnMap {
 		urn:ad:css:bootstrap3 css/bootstrap.min.css
 		urn:ad:js:bootstrap3  js/bootstrap.min.js
