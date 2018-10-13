@@ -22,7 +22,7 @@ ad_proc openacs_bootstrap3_theme::apm::after_install {} {
                 {-href /resources/acs-templating/lists.css -media all -order 5}
 	    } \
 	    -js {
-                {-src /resources/openacs-bootstrap3-theme/js/jquery-1.11.3.min.js -order 1}
+                {-src /resources/openacs-bootstrap3-theme/js/jquery-1.12.3.min.js -order 1}
                 {-src urn:ad:js:bootstrap3 -order 2}
             } \
             -form_template standard \
@@ -45,7 +45,7 @@ ad_proc openacs_bootstrap3_theme::apm::after_install {} {
                 {-href /resources/acs-templating/lists.css -media all -order 5}
 	    } \
 	    -js {
-                {-src /resources/openacs-bootstrap3-theme/js/jquery-1.11.3.min.js -order 1}
+                {-src /resources/openacs-bootstrap3-theme/js/jquery-1.12.3.min.js -order 1}
                 {-src urn:ad:js:bootstrap3 -order 2}
 	    } \
 	    -form_template standard \
