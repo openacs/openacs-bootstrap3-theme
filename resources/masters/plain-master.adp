@@ -46,7 +46,7 @@
                 Next Scripting <a href="https://next-scripting.org/"><img alt="NSF Logo" src="/resources/openacs-bootstrap3-theme/images/next-icon.png" width="14" height="8"></a>, 
                 NaviServer <%= [ns_info patchlevel] %> <a href="http://sourceforge.net/projects/naviserver/"><img src="/resources/openacs-bootstrap3-theme/images/ns-icon-16.png" alt="NaviServer Logo" width="12" height="12"></a>,
                 <a href='http://ipv6-test.com/validate.php?url=referer'><img src='http://ipv6-test.com/button-ipv6-80x15.png' alt='ipv6 ready' title='ipv6 ready' border='0' /></a>,
-                <%= [expr {[string match *.* [ns_conn peeraddr]] ? "IPv4" : "IPv6"}] %>)
+                <%= [expr {[ns_conn isconnected] && [string match *.* [ns_conn peeraddr]] ? "IPv4" : "IPv6"}] %>)
             </p>
         </div>
     </div>
