@@ -11,9 +11,9 @@ set version $::openacs_bootstrap3_theme::bootstrap_version
 set resource_info [::openacs_bootstrap3_theme::resource_info]
 set prefix        [dict get $resource_info prefix]
 
-foreach urn [dict keys [dict get $resource_info urnMap]] {
-    ns_log notice "TEST -urn $urn -resource $prefix/[dict get $resource_info urnMap $urn]"
+foreach URN [dict keys [dict get $resource_info urnMap]] {
+    ns_log notice "TEST -urn $URN -resource $prefix/[dict get $resource_info urnMap $URN]"
     template::register_urn \
-	-urn $urn \
-	-resource $prefix/[dict get $resource_info urnMap $urn]
+	-urn $URN \
+	-resource $prefix/[dict get $resource_info urnMap $URN]
 }
