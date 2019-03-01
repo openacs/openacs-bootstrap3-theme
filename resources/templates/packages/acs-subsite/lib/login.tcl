@@ -176,7 +176,7 @@ ad_form -extend -name login -form {
 ad_form -extend -name login -on_request {
     # Populate fields from local vars
 
-    set persistent_p [ad_decode $default_persistent_login_p 1 "t" ""]
+    set persistent_p [expr {$default_persistent_login_p == 1 ? "t" : ""}]
 
     # One common problem with login is that people can hit the back button
     # after a user logs out and relogin by using the cached password in
