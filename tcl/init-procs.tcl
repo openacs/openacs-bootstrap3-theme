@@ -39,6 +39,7 @@ namespace eval openacs_bootstrap3_theme {
 		fonts/glyphicons-halflings-regular.woff
 		fonts/glyphicons-halflings-regular.woff2
 		fonts/glyphicons-halflings-regular.ttf
+		css/bootstrap.min.css.map
 	    } \
 	    urnMap {
 		urn:ad:css:bootstrap3 css/bootstrap.min.css
