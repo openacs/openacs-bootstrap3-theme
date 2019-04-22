@@ -1,5 +1,5 @@
 namespace eval openacs_bootstrap3_theme {
-    set bootstrap_version 3.3.7
+    set bootstrap_version 3.4.1
 
     ad_proc -private ::openacs_bootstrap3_theme::resource_info {} {
 
@@ -8,7 +8,7 @@ namespace eval openacs_bootstrap3_theme {
 	local file system, or from CDN.
 
 	@return dict containing resourceDir, resourceName, cdn,
-	        cdnHost, prefix, cssFiles, jsFiles and extraFiles.
+		cdnHost, prefix, cssFiles, jsFiles and extraFiles.
 
     } {
 	#

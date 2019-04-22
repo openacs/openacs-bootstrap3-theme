@@ -8,45 +8,46 @@ ad_proc openacs_bootstrap3_theme::apm::after_install {} {
 
     # Insert this package's themes
     db_transaction {
-
 	subsite::new_subsite_theme \
+	    -create_or_replace \
 	    -key openacs_bootstrap3 \
 	    -name #openacs-bootstrap3-theme.tabbed# \
 	    -template tabbed-master \
 	    -css {
-                {-href /resources/acs-subsite/site-master.css -media all -order 0}
-                {-href urn:ad:css:bootstrap3 -media all -order 1}
-                {-href /resources/openacs-bootstrap3-theme/css/main.css -media all -order 2}
-                {-href /resources/openacs-bootstrap3-theme/css/color/grey.css -media all -order 3}
-                {-href /resources/acs-templating/forms.css -media all -order 4}
-                {-href /resources/acs-templating/lists.css -media all -order 5}
+		{-href /resources/acs-subsite/site-master.css -media all -order 0}
+		{-href urn:ad:css:bootstrap3 -media all -order 1}
+		{-href /resources/openacs-bootstrap3-theme/css/main.css -media all -order 2}
+		{-href /resources/openacs-bootstrap3-theme/css/color/grey.css -media all -order 3}
+		{-href /resources/acs-templating/forms.css -media all -order 4}
+		{-href /resources/acs-templating/lists.css -media all -order 5}
 	    } \
 	    -js {
-                {-src /resources/openacs-bootstrap3-theme/js/jquery-1.12.3.min.js -order 1}
-                {-src urn:ad:js:bootstrap3 -order 2}
-            } \
-            -form_template standard \
-            -list_template table \
+		{-src urn:ad:js:jquery -order 1}
+		{-src urn:ad:js:bootstrap3 -order 2}
+	    } \
+	    -form_template standard \
+	    -list_template table \
 	    -list_filter_template filters \
 	    -dimensional_template dimensional \
 	    -resource_dir /packages/openacs-bootstrap3-theme/resources \
-	    -streaming_head tabbed-streaming-head \
+	    -streaming_head tabbed-streaming-head
 
-        subsite::new_subsite_theme \
+	subsite::new_subsite_theme \
+	    -create_or_replace \
 	    -key openacs_bootstrap3_turquois \
 	    -name #openacs-bootstrap3-theme.tabbed-turquois# \
 	    -template tabbed-master-turquois \
 	    -css {
-                {-href /resources/acs-subsite/site-master.css -media all -order 0}
-                {-href urn:ad:css:bootstrap3 -media all -order 1}
-                {-href /resources/openacs-bootstrap3-theme/css/main.css -media all -order 2}
-                {-href /resources/openacs-bootstrap3-theme/css/color/turquois.css -media all -order 3}
-                {-href /resources/acs-templating/forms.css -media all -order 4}
-                {-href /resources/acs-templating/lists.css -media all -order 5}
+		{-href /resources/acs-subsite/site-master.css -media all -order 0}
+		{-href urn:ad:css:bootstrap3 -media all -order 1}
+		{-href /resources/openacs-bootstrap3-theme/css/main.css -media all -order 2}
+		{-href /resources/openacs-bootstrap3-theme/css/color/turquois.css -media all -order 3}
+		{-href /resources/acs-templating/forms.css -media all -order 4}
+		{-href /resources/acs-templating/lists.css -media all -order 5}
 	    } \
 	    -js {
-                {-src /resources/openacs-bootstrap3-theme/js/jquery-1.12.3.min.js -order 1}
-                {-src urn:ad:js:bootstrap3 -order 2}
+		{-src urn:ad:js:jquery -order 1}
+		{-src urn:ad:js:bootstrap3 -order 2}
 	    } \
 	    -form_template standard \
 	    -list_template table \

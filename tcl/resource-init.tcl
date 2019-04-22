@@ -12,8 +12,11 @@ set resource_info [::openacs_bootstrap3_theme::resource_info]
 set prefix        [dict get $resource_info prefix]
 
 foreach URN [dict keys [dict get $resource_info urnMap]] {
-    ns_log notice "TEST -urn $URN -resource $prefix/[dict get $resource_info urnMap $URN]"
     template::register_urn \
 	-urn $URN \
 	-resource $prefix/[dict get $resource_info urnMap $URN]
 }
+
+template::register_urn \
+    -urn urn:ad:js:jquery \
+    -resource /resources/openacs-bootstrap3-theme/js/jquery-3.4.0.min.js
