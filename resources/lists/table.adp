@@ -86,7 +86,7 @@
   <div class="list-button-bar-top">
     <ul class="compact">
       <multiple name="actions">
-        <li><a href="@actions.url@" title="@actions.title@" class="button">@actions.label@</a></li>
+        <li><a href="@actions.url@" title="@actions.title@" class="btn btn-default">@actions.label@</a></li>
       </multiple>
     </ul>
   </div>
@@ -248,7 +248,7 @@
 	<% template::add_event_listener -id "$list_properties(name)-bulk_action-$bulk_actions(rownum)" -script [subst {
 	    $list_properties(bulk_action_click_function)('$list_properties(name)', '$bulk_actions(url)');
 	}] %>
-        <input type="submit" title="@bulk_actions.title@" id="@list_properties.name;literal@-bulk_action-@bulk_actions.rownum;literal@" value="@bulk_actions.label@" class="button">	
+        <input type="submit" title="@bulk_actions.title@" id="@list_properties.name;literal@-bulk_action-@bulk_actions.rownum;literal@" value="@bulk_actions.label@" class="btn btn-default">	
         </multiple>
     </div>
     <!-- end of list-button-bar-bottom div -->
