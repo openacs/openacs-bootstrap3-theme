@@ -6,15 +6,18 @@ body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     voice-family: "\"}\""; voice-family:inherit;
 }
-a:link {
-    text-decoration:none;
-}
+a:link,
 a:visited {
     text-decoration:none;
 }
 a:hover {
     text-decoration:underline;
     background-color: #f3f1e9;
+}
+li a.btn-default,
+li a:visited.btn-default,
+li a:link.btn-default {
+    color: #666;
 }
 h1 {
     color:#cf8a00;
