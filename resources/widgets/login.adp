@@ -1,5 +1,5 @@
 <if @login_p;literal@ true>
-    <li class="dropdown">
+    <li class="dropdown" style="z-index:1100;">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="padding-top:8px;padding-bottom:0;">@photo;noquote@ <em class="glyphicon glyphicon-chevron-down"></em></a>
         <ul class="dropdown-menu">
             <li>
