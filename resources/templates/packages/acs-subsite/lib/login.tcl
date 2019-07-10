@@ -153,7 +153,7 @@ set focus "login.$focus"
 ad_form -extend -name login -form {
     {password:text(password) 
         {label "[_ acs-subsite.Password]:"}
-	{html {style "width: 300px" class "form-control"}}
+	{html {style "width: 300px" class "form-control" autocomplete "new-password"}}
     }
 }
 
