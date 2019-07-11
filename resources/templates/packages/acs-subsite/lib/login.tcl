@@ -67,6 +67,14 @@ if { $allow_persistent_login_p } {
     set default_persistent_login_p 0
 }
 
+#
+# Set the value of the autocomplete attribute on the 'password' element in the
+# login form.
+#
+set password_autocomplete [parameter::get \
+                                -parameter LoginPasswordAutocomplete  \
+                                -package_id $subsite_id \
+                                -default "current-password"]
 
 set subsite_url [subsite::get_element -element url]
 set system_name [ad_system_name]
@@ -150,7 +158,7 @@ set focus "login.$focus"
 ad_form -extend -name login -form {
     {password:text(password)
         {label "[_ acs-subsite.Password]:"}
-        {html {style "width: 300px" class "form-control" autocomplete "new-password"}}
+        {html {style "width: 300px" class "form-control" autocomplete "$password_autocomplete"}}
     }
 }
 
