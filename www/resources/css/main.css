@@ -238,3 +238,7 @@ div.portlet {
 .navbar-default .navbar-brand:hover {
     color: #eee;
 }
+
+div.content pre {
+    white-space: pre-wrap;
+}

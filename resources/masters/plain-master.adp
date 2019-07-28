@@ -22,10 +22,12 @@
     <!-- END HEADER -->
   
     <if @user_messages:rowcount@ gt 0>
-        <div id="alert-message">
+        <div id="bootstrap3-alert-message">
             <multiple name="user_messages">
-                <div class="alert">
-                    <strong>@user_messages.message;noquote@</strong>
+                <div class="alert alert-success">
+		    <a class="close" data-dismiss="alert">×</a>
+		    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+                    @user_messages.message;noquote@
                 </div>
             </multiple>
         </div>
