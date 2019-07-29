@@ -242,3 +242,24 @@ div.portlet {
 div.content pre {
     white-space: pre-wrap;
 }
+
+a.acs-lang-localized,
+a.acs-lang-us_only,
+a.acs-lang-missing {
+    padding: 0px 0px 0px 0px !important;
+}
+a.acs-lang-localized::after {
+    color: green;
+    font-family: 'Glyphicons Halflings';
+    content: "\e013"; /* glyphicon-ok */
+}
+a.acs-lang-us_only::after {
+    color: orange;
+    font-family: 'Glyphicons Halflings';
+    content: "\e136"; /* glyphicon-wrench */
+}
+a.acs-lang-missing::after {
+    color: red;
+    font-family: 'Glyphicons Halflings';
+    content:  "\e209"; /* glyphicon-alert */
+}
