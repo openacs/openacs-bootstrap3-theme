@@ -44,7 +44,7 @@
             <p style="margin:0;">
               This website is maintained by the OpenACS community. Any problems, email <a href="mailto:@signatory@">webmaster</a> or <a href="/bugtracker/openacs.org/">submit</a> a bug report.
 <br>
-              (Powered by Tcl<a href="http://www.tcl.tk/"><img alt="Tcl Logo" src="/resources/openacs-bootstrap3-theme/images/plume.png" width="14" height="18"></a>, 
+              (Powered by Tcl<a href="http://www.tcl.tk/"><img alt="Tcl Logo" src="/resources/openacs-bootstrap3-theme/images/plume.png" width="14" height="13"></a>, 
                 Next Scripting <a href="https://next-scripting.org/"><img alt="NSF Logo" src="/resources/openacs-bootstrap3-theme/images/next-icon.png" width="14" height="8"></a>, 
                 NaviServer <%= [ns_info patchlevel] %> <a href="http://sourceforge.net/projects/naviserver/"><img src="/resources/openacs-bootstrap3-theme/images/ns-icon-16.png" alt="NaviServer Logo" width="12" height="12"></a>,
                 <%= [expr {[ns_conn isconnected] && [string match *.* [ns_conn peeraddr]] ? "IPv4" : "IPv6"}] %>)

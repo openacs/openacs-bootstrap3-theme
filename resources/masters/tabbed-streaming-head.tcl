@@ -5,7 +5,9 @@ subsite_navigation::define_pageflow -navigation_multirow navigation -group main 
     -no_tab_application_list [parameter::get -package_id [ad_conn subsite_id] -parameter NoTabApplicationList -default ""] \
     -initial_pageflow [parameter::get -package_id [ad_conn subsite_id] -parameter UserNavbarTabsList -default ""]
     
-set subsite_logo "/resources/openacs-bootstrap3-theme/images/openacs2_xs.png"
+#set subsite_logo "/resources/openacs-bootstrap3-theme/images/openacs2_xs.png"
+set subsite_logo ""
+
 set streaming_head 1
 
 if {![info exists subsite_link]} {
