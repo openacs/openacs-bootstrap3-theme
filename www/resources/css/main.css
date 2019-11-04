@@ -216,8 +216,11 @@ div#forum-thread div.dynexpanded p {
     margin-bottom: 10px;
 }
 div#forum-thread blockquote {
-    font-size: 14px;
+    font-size: 13px;
     font-style: italic;
+    order-left: 5px solid #ddd;
+    margin: 0px 20px 6px 0px;
+    padding: 0px 10px 0px 10px;
 }
 h2.forum-heading {
     margin:0;
