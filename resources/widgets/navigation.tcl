@@ -36,17 +36,23 @@ for {set i 1} {$i <= [template::multirow size navigation]} {incr i} {
     }
     set nav_parent $navigation(parent)
     if {$nav_parent ne ""} {
-	if {[info exists submenus($nav_parent)]} {
-	    set submenus($nav_parent) "$submenus($nav_parent) $item_html"
-	} else {
-	    set submenus($nav_parent) ""
-	}
+        if {[info exists submenus($nav_parent)]} {
+            set submenus($nav_parent) "$submenus($nav_parent) $item_html"
+        } else {
+            set submenus($nav_parent) ""
+        }
     }
 }
 
 template::multirow extend navigation submenu
 template::multirow foreach navigation {
     if {[info exists submenus($name)]} {
-	set submenu $submenus($name)
+        set submenu $submenus($name)
     }
 }
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

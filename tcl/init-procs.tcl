@@ -49,3 +49,9 @@ namespace eval openacs_bootstrap3_theme {
 	return $result
     }
 }
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

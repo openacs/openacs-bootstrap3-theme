@@ -39,3 +39,9 @@ if {!$user_id} {
     set name [person::get_person_info -person_id $user_id -element first_names]
 }
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

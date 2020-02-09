@@ -1,4 +1,3 @@
-
 set streaming_head 1
 
 if {![info exists subsite_link]} {
@@ -11,3 +10,9 @@ if {[info exists context]}     { set context_bar [ad_context_bar {*}$context]}
 
 set subsite_url [subsite::get_element -element url]
 set subsite_name [lang::util::localize [subsite::get_element -element instance_name]]
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

@@ -13,10 +13,16 @@ set prefix        [dict get $resource_info prefix]
 
 foreach URN [dict keys [dict get $resource_info urnMap]] {
     template::register_urn \
-	-urn $URN \
-	-resource $prefix/[dict get $resource_info urnMap $URN]
+        -urn $URN \
+        -resource $prefix/[dict get $resource_info urnMap $URN]
 }
 
 template::register_urn \
     -urn urn:ad:js:jquery \
     -resource /resources/openacs-bootstrap3-theme/js/jquery-3.4.1.min.js
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:
