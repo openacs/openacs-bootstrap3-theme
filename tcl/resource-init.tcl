@@ -14,7 +14,10 @@ set prefix        [dict get $resource_info prefix]
 foreach URN [dict keys [dict get $resource_info urnMap]] {
     template::register_urn \
         -urn $URN \
-        -resource $prefix/[dict get $resource_info urnMap $URN]
+        -resource $prefix/[dict get $resource_info urnMap $URN] \
+        -csp_list [expr {[dict exists $resource_info csp_lists $URN]
+                         ? [dict set $resource_info csp_lists $URN]
+                         : ""}]
 }
 
 template::register_urn \

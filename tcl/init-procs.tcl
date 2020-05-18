@@ -45,7 +45,17 @@ namespace eval openacs_bootstrap3_theme {
 		urn:ad:css:bootstrap3 css/bootstrap.min.css
 		urn:ad:js:bootstrap3  js/bootstrap.min.js
 	    }
-
+        if {$cdnHost ne ""} {
+            lappend result csp_lists [subst {
+                urn:ad:css:bootstrap3 {
+                    style-src $cdnHost
+                    font-src $cdnHost
+                }
+                urn:ad:js:bootstrap3 {
+                    script-src $cdnHost
+                }
+            }]
+        }
 	return $result
     }
 }
