@@ -81,7 +81,7 @@ set system_name [ad_system_name]
 
 if { $return_url ne "" } {
     if { [util::external_url_p $return_url] } {
-      ad_returnredirect -message "only URLs without a host name are permitted" "."
+      ad_returnredirect -message "only URLs without a hostname are permitted" "."
       ad_script_abort
     }
 } else {

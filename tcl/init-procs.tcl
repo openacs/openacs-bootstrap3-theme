@@ -5,7 +5,7 @@ namespace eval openacs_bootstrap3_theme {
 
 	Get information about available version(s) of the bootstrap
 	packages. The goal is to deliver resources either from the
-	local file system, or from CDN.
+	local filesystem, or from CDN.
 
 	@return dict containing resourceDir, resourceName, cdn,
 		cdnHost, prefix, cssFiles, jsFiles and extraFiles.
