@@ -1,7 +1,7 @@
 namespace eval openacs_bootstrap3_theme {}
 namespace eval openacs_bootstrap3_theme::apm {}
 
-ad_proc openacs_bootstrap3_theme::apm::after_install {} {
+ad_proc -private openacs_bootstrap3_theme::apm::after_install {} {
     Package after installation callback proc.  Add our themes, and set the acs-subsite's
     default master template parameter's default value to our "plain" theme.
 } {
@@ -58,7 +58,7 @@ ad_proc openacs_bootstrap3_theme::apm::after_install {} {
     }
 }
 
-ad_proc -public openacs_bootstrap3_theme::apm::before_uninstall {} {
+ad_proc -private openacs_bootstrap3_theme::apm::before_uninstall {} {
     Uninstall the package
 } {
     if {[subsite::get_theme] in {openacs_bootstrap3 openacs_bootstrap3_turquois}} {
