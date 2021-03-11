@@ -116,14 +116,25 @@ ad_form \
     }
 
 set username_widget text
-if { [parameter::get -parameter UsePasswordWidgetForUsername -package_id [ad_acs_kernel_id]] } {
+if {[namespace which ::template::widget::email] ne ""} {
+    set email_widget email
+} else {
+    #
+    # Failover to avoid breaking the login page if the acs-templating package
+    # has not been updated to a version supporting the 'email' widget yet.
+    #
+    set email_widget text
+}
+
+if { [parameter::get -parameter UsePasswordWidgetForUsername -package_id $::acs::kernel_id] } {
     set username_widget password
+    set email_widget    password
 }
 
 set focus {}
 if { [auth::UseEmailForLoginP] } {
     ad_form -extend -name login \
-        -form [list [list email:text($username_widget),nospell \
+        -form [list [list email:text($email_widget),nospell \
                 [list label [_ acs-subsite.Email]:] \
                 {html {style "width: 300px" class "form-control"}}]]
     set user_id_widget_name email
@@ -283,7 +294,7 @@ ad_form -extend -name login -on_request {
                             } else {
                                 set operation create
                             }
-                            element $operation login email -widget $username_widget -datatype text -label [_ acs-subsite.Email]
+                            element $operation login email -widget $email_widget -datatype text -label [_ acs-subsite.Email]
                             if {[element error_p login email]} {
                                 template::form::set_error login email [_ acs-subsite.Email_not_provided_by_authority]
                             }
