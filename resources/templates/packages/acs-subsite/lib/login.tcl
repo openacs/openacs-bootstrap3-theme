@@ -57,12 +57,21 @@ if { $email eq "" && $username eq "" && $untrusted_user_id != 0 } {
 #  1. Allowed if allowed both site-wide (on acs-kernel) and on the subsite
 #  2. Default setting is in acs-kernel
 
-set allow_persistent_login_p [parameter::get -parameter AllowPersistentLoginP -package_id [ad_acs_kernel_id] -default 1]
+set allow_persistent_login_p [parameter::get \
+                                  -parameter AllowPersistentLoginP \
+                                  -package_id [ad_acs_kernel_id] \
+                                  -default 1]
 if { $allow_persistent_login_p } {
-    set allow_persistent_login_p [parameter::get -package_id $subsite_id -parameter AllowPersistentLoginP -default 1]
+    set allow_persistent_login_p [parameter::get \
+                                      -package_id $subsite_id \
+                                      -parameter AllowPersistentLoginP \
+                                      -default 1]
 }
 if { $allow_persistent_login_p } {
-    set default_persistent_login_p [parameter::get -parameter DefaultPersistentLoginP -package_id [ad_acs_kernel_id] -default 1]
+    set default_persistent_login_p [parameter::get \
+                                        -parameter DefaultPersistentLoginP \
+                                        -package_id [ad_acs_kernel_id] \
+                                        -default 1]
 } else {
     set default_persistent_login_p 0
 }
@@ -215,7 +224,10 @@ ad_form -extend -name login -on_request {
     set token [sec_get_token $token_id]
     set computed_hash [ns_sha1 "$time$token_id$token"]
 
-    set expiration_time [parameter::get -parameter LoginPageExpirationTime -package_id [ad_acs_kernel_id] -default 600]
+    set expiration_time [parameter::get \
+                             -parameter LoginPageExpirationTime \
+                             -package_id [ad_acs_kernel_id] \
+                             -default 600]
     if { $expiration_time < 30 } {
         # If expiration_time is less than 30 seconds, it's practically impossible to login
         # and you will have completely hosed login on your entire site
@@ -252,7 +264,8 @@ ad_form -extend -name login -on_request {
                              -username [string trim $username] \
                              -password $password \
                              -host_node_id $host_node_id \
-                             -persistent=[expr {$allow_persistent_login_p && [template::util::is_true $persistent_p]}]]
+                             -persistent=[expr {$allow_persistent_login_p
+                                                && [template::util::is_true $persistent_p]}]]
 
     # Handle authentication problems
     switch $auth_info(auth_status) {
