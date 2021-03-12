@@ -155,6 +155,22 @@ div.form-required-mark:after, strong.form-required-mark:after {
       font-size:13px;
       font-weight:bold;
 }
+
+input[type="search"] {
+    /*
+       Bootstrap 3 sets -webkit-appearance to 'none', effectively affecting
+       unstyled search input types (not using the 'form-control' class).
+
+       This should be revised in the future, as Bootstrap 4 deals with this
+       differently.
+
+       See: https://github.com/twbs/bootstrap/issues/11586
+            https://github.com/twbs/bootstrap/pull/12629
+            https://developer.mozilla.org/es/docs/Web/CSS/appearance
+    */
+    -webkit-appearance: textfield;
+}
+
 /****** Bootstrap Style Table *********/
 table.table-striped tr.even {
     background-color:transparent;
