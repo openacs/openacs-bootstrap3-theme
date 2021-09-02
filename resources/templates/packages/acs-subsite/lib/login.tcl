@@ -1,5 +1,5 @@
 ad_include_contract {
-    ADP include for presentin a login box
+    ADP include for presenting a login box
 
     @param subsite_id - optional, defaults to nearest subsite
     @param return_url - optional, defaults to Your Account
@@ -59,7 +59,7 @@ if { $email eq "" && $username eq "" && $untrusted_user_id != 0 } {
 
 set allow_persistent_login_p [parameter::get \
                                   -parameter AllowPersistentLoginP \
-                                  -package_id [ad_acs_kernel_id] \
+                                  -package_id $::acs::kernel_id \
                                   -default 1]
 if { $allow_persistent_login_p } {
     set allow_persistent_login_p [parameter::get \
@@ -70,7 +70,7 @@ if { $allow_persistent_login_p } {
 if { $allow_persistent_login_p } {
     set default_persistent_login_p [parameter::get \
                                         -parameter DefaultPersistentLoginP \
-                                        -package_id [ad_acs_kernel_id] \
+                                        -package_id $::acs::kernel_id \
                                         -default 1]
 } else {
     set default_persistent_login_p 0
@@ -226,7 +226,7 @@ ad_form -extend -name login -on_request {
 
     set expiration_time [parameter::get \
                              -parameter LoginPageExpirationTime \
-                             -package_id [ad_acs_kernel_id] \
+                             -package_id $::acs::kernel_id \
                              -default 600]
     if { $expiration_time < 30 } {
         # If expiration_time is less than 30 seconds, it's practically impossible to login
@@ -268,7 +268,7 @@ ad_form -extend -name login -on_request {
                                                 && [template::util::is_true $persistent_p]}]]
 
     # Handle authentication problems
-    switch $auth_info(auth_status) {
+    switch -- $auth_info(auth_status) {
         ok {
             # Continue below
         }
@@ -288,7 +288,7 @@ ad_form -extend -name login -on_request {
     }
 
     # Handle account status
-    switch $auth_info(account_status) {
+    switch -- $auth_info(account_status) {
         ok {
             # Continue below
         }
