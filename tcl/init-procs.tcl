@@ -46,7 +46,7 @@ namespace eval openacs_bootstrap3_theme {
 		urn:ad:js:bootstrap3  js/bootstrap.min.js
 	    }
         if {$cdnHost ne ""} {
-            lappend result csp_lists [subst {
+            lappend result cspMap [subst {
                 urn:ad:css:bootstrap3 {
                     style-src $cdnHost
                     font-src $cdnHost
