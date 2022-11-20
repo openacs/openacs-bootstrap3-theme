@@ -267,18 +267,18 @@ a.acs-lang-us_only,
 a.acs-lang-missing {
     padding: 0px 0px 0px 0px !important;
 }
-a.acs-lang-localized::after {
+a.acs-lang-localized:link,
+a.acs-lang-localized:visited,
+a.acs-lang-localized:hover {
     color: green;
-    font-family: 'Glyphicons Halflings';
-    content: "\e013"; /* glyphicon-ok */
 }
-a.acs-lang-us_only::after {
+a.acs-lang-us_only:link,
+a.acs-lang-us_only:visited,
+a.acs-lang-us_only:hover {
     color: orange;
-    font-family: 'Glyphicons Halflings';
-    content: "\e136"; /* glyphicon-wrench */
 }
-a.acs-lang-missing::after {
+a.acs-lang-missing:link,
+a.acs-lang-missing:visited,
+a.acs-lang-missing:hover {
     color: red;
-    font-family: 'Glyphicons Halflings';
-    content:  "\e209"; /* glyphicon-alert */
 }
