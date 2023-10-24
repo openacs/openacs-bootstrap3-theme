@@ -42,7 +42,7 @@
     <div class="navbar navbar-default navbar-fixed-bottom" style="border-color:#ccc;">
         <div class="footer" style='margin-top:0;font-size:90%;color:#666;padding-top:5px;'>
             <p style="margin:0;">
-              This website is maintained by the OpenACS community. Any problems, email <a href="mailto:@signatory@">webmaster</a> or <a href="/bugtracker/openacs.org/">submit</a> a bug report.
+              This website is maintained by the OpenACS community. Any problems, email <a href="mailto:@signatory@">webmaster</a> or <a href="https://openacs.org/bugtracker/openacs.org/">submit</a> a bug report.
 <br>
               (Powered by Tcl<a href="http://www.tcl.tk/"><img alt="Tcl Logo" src="/resources/openacs-bootstrap3-theme/images/plume.png" width="14" height="13"></a>, 
                 Next Scripting <a href="https://next-scripting.org/"><img alt="NSF Logo" src="/resources/openacs-bootstrap3-theme/images/next-icon.png" width="14" height="8"></a>, 
