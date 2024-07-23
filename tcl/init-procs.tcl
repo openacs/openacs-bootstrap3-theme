@@ -44,7 +44,9 @@ namespace eval openacs_bootstrap3_theme {
 	    urnMap {
 		urn:ad:css:bootstrap3 css/bootstrap.min.css
 		urn:ad:js:bootstrap3  js/bootstrap.min.js
-	    }
+	    } \
+            installedVersion $version
+        
         if {$cdnHost ne ""} {
             lappend result cspMap [subst {
                 urn:ad:css:bootstrap3 {
