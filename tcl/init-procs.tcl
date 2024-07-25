@@ -45,7 +45,7 @@ namespace eval openacs_bootstrap3_theme {
 		urn:ad:css:bootstrap3 css/bootstrap.min.css
 		urn:ad:js:bootstrap3  js/bootstrap.min.js
 	    } \
-            vulnerabilityCheckURL https://snyk.io/advisor/npm-package/bootstrap \
+            vulnerabilityCheck {service snyk library bootstrap} \
             installedVersion $version
         
         if {$cdnHost ne ""} {
