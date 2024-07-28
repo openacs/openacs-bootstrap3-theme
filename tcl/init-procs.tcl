@@ -15,12 +15,11 @@ namespace eval openacs_bootstrap3_theme {
 	# Provide paths for loading either via resources or CDN
 	#
 	set resourceDir [acs_package_root_dir openacs-bootstrap3-theme/www/resources/bootstrap]
-	set resourceUrl /resources/openacs-bootstrap3-theme/bootstrap
-	set cdn         "//maxcdn.bootstrapcdn.com/bootstrap"
+	set cdn         //maxcdn.bootstrapcdn.com/bootstrap
 	set version     $openacs_bootstrap3_theme::bootstrap_version
 
 	if {[file exists $resourceDir/$version]} {
-	    set prefix  $resourceUrl/$version
+	    set prefix  /resources/openacs-bootstrap3-theme/bootstrap/$version
 	    set cdnHost ""
 	} else {
 	    set prefix $cdn/$version
