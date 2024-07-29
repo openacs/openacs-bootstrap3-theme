@@ -45,7 +45,7 @@ namespace eval openacs_bootstrap3_theme {
 		urn:ad:js:bootstrap3  js/bootstrap.min.js
 	    } \
             vulnerabilityCheck {service snyk library bootstrap} \
-            installedVersion $version
+            configuredVersion $version
         
         if {$cdnHost ne ""} {
             lappend result cspMap [subst {
