@@ -1,7 +1,7 @@
 #
 # Register some URNs
 #
-::util::resources::register_urns -namespace openacs_bootstrap3_theme
+::util::resources::register_urns -prefix openacs_bootstrap3_theme
 
 template::register_urn \
     -urn urn:ad:js:jquery \
