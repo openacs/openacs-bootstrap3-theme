@@ -11,12 +11,7 @@ set system_name [ad_system_name]
 set portrait_id [acs_user::get_portrait_id -user_id $user_id]
 if {$portrait_id == 0} {
     set email [party::email -party_id $user_id]
-    if {[info commands ns_md5] ne ""} {
-        set md5 [string tolower [ns_md5 $email]]
-    } else {
-        package require md5
-        set md5 [string tolower [md5::Hex [md5::md5 -- $email]]]
-    }
+    set md5 [string tolower [ns_md5 $email]]
     set src //www.gravatar.com/avatar/$md5?size=35&d=mm
     security::csp::require img-src www.gravatar.com
 } else {
@@ -28,14 +23,29 @@ set photo "<img width='35' height='35' class='photo' src='[ns_quotehtml $src]'>"
 set num_users_online [lc_numeric [whos_online::num_users]]
 set whos_online_url "[subsite::get_element -element url]shared/whos-online"
 
-set return_url [ad_return_url]
 if {!$user_id} {
+    #
+    # If the current form is the login form, remove the password for
+    # security reasons.
+    #
+    set f [ns_getform]
+    if {[ns_set get $f form:id] eq "login"} {
+        ns_set delkey $f password
+    }
+    set return_url [ad_return_url]
     set login_p 0
     set login_url [export_vars -base /register/ return_url]
     set register_url [export_vars -base /register/user-new return_url]
 } else {
+    # set return_url [ad_return_url]
     set login_p 1
     #set name [person::name -person_id $user_id]
     set name [person::get_person_info -person_id $user_id -element first_names]
 }
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

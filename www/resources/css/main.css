@@ -6,15 +6,18 @@ body {
     font-family: "Open Sans","Helvetica Neue",Helvetica,Arial,sans-serif;
     voice-family: "\"}\""; voice-family:inherit;
 }
-a:link {
-    text-decoration:none;
-}
+a:link,
 a:visited {
     text-decoration:none;
 }
 a:hover {
     text-decoration:underline;
     background-color: #f3f1e9;
+}
+li a.btn-default,
+li a:visited.btn-default,
+li a:link.btn-default {
+    color: #666;
 }
 h1 {
     color:#cf8a00;
@@ -152,6 +155,22 @@ div.form-required-mark:after, strong.form-required-mark:after {
       font-size:13px;
       font-weight:bold;
 }
+
+input[type="search"] {
+    /*
+       Bootstrap 3 sets -webkit-appearance to 'none', effectively affecting
+       unstyled search input types (not using the 'form-control' class).
+
+       This should be revised in the future, as Bootstrap 4 deals with this
+       differently.
+
+       See: https://github.com/twbs/bootstrap/issues/11586
+            https://github.com/twbs/bootstrap/pull/12629
+            https://developer.mozilla.org/es/docs/Web/CSS/appearance
+    */
+    -webkit-appearance: textfield;
+}
+
 /****** Bootstrap Style Table *********/
 table.table-striped tr.even {
     background-color:transparent;
@@ -213,8 +232,11 @@ div#forum-thread div.dynexpanded p {
     margin-bottom: 10px;
 }
 div#forum-thread blockquote {
-    font-size: 14px;
+    font-size: 13px;
     font-style: italic;
+    border-left: 5px solid #ddd;
+    margin: 6px 20px 6px 0px;
+    padding: 0px 10px 0px 10px;
 }
 h2.forum-heading {
     margin:0;
@@ -234,4 +256,40 @@ div.portlet {
 }
 .navbar-default .navbar-brand:hover {
     color: #eee;
+}
+
+div.content pre {
+    white-space: pre-wrap;
+}
+
+a.acs-lang-localized,
+a.acs-lang-us_only,
+a.acs-lang-missing {
+    padding: 0px 0px 0px 0px !important;
+}
+a.acs-lang-localized:link,
+a.acs-lang-localized:visited,
+a.acs-lang-localized:hover {
+    color: green;
+}
+a.acs-lang-us_only:link,
+a.acs-lang-us_only:visited,
+a.acs-lang-us_only:hover {
+    color: orange;
+}
+a.acs-lang-missing:link,
+a.acs-lang-missing:visited,
+a.acs-lang-missing:hover {
+    color: red;
+}
+
+.dropdown-toggle::after {
+    display: inline-block;
+    margin-left: .255em;
+    vertical-align: .255em;
+    content: "";
+    border-top: .3em solid;
+    border-right: .3em solid transparent;
+    border-bottom: 0;
+    border-left: .3em solid transparent;
 }

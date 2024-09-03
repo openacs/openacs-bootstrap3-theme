@@ -3,14 +3,16 @@ ad_page_contract {
 
     @creation-date Aug 1, 2018
 } {
-    {version:word,notnull ""}
+    {version:token,notnull ""}
 }
 
-if {$version eq ""} {
-    set version $::openacs_bootstrap3_theme::bootstrap_version
-}
 ::util::resources::download \
-    -version_dir $version \
-    -resource_info [::openacs_bootstrap3_theme::resource_info]
+    -resource_info [::openacs_bootstrap3_theme::resource_info -version $version]
 
 ad_returnredirect .
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

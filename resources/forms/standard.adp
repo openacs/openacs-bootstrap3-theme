@@ -1,7 +1,7 @@
 <multiple name=elements>
 	<if @elements.section@ not nil>
 		<fieldset id="@elements.form_id;noi18n@:@elements.section;noi18n@" @elements.sec_fieldset;noquote@><!-- section fieldset -->
-        <legend @elements.sec_legend;noquote@><span>@elements.sec_legendtext@</span></legend>
+        <a name='@elements.section;noi18n@'><legend @elements.sec_legend;noquote@><span>@elements.sec_legendtext@</span></legend></a>
 	</if>
 	
 	<group column="section">
@@ -11,17 +11,15 @@
   
 	  <else>
 		<if @elements.widget;literal@ eq "submit"><!-- if form submit button wrap it in the form-button class -->
-  		 <div class="form-group">
-                 <div class="col-sm-offset-2 col-sm-10">
+  		 <div class="form-button">
            <group column="widget">
              <noparse><formwidget id="@elements.id@">&nbsp;</noparse>
            </group>
   		 </div>
-  		 </div>
        </if>
         
-	   <else> <!-- wrap the form item in the form-group class -->
-	     <div class="form-group">
+	   <else> <!-- wrap the form item in the form-item-wrapper class -->
+	     <div class="form-item-wrapper">
            <noparse>
 			 <formerror id="@elements.id@">
 			   <span class="form-error">
@@ -44,7 +42,7 @@
                    <!-- no label tag -->
                  </if>
                  <else>
-				   <label class="control-label col-sm-2" for="@elements.id@">
+				   <label for="@elements.id@">
                  </else>
 
                  <if \@formerror.@elements.id@\@ not nil>
@@ -83,29 +81,27 @@
 
 		     <if @elements.widget;literal@ in radio checkbox>
                            <noparse>
-                 <div class="col-sm-offset-2 col-sm-10">
-                 <div class="checkbox">
+                 <span class="form-widget">
                  <formgroup id="@elements.id@">			
 				   <label for="@elements.form_id@:elements:@elements.id@:\@formgroup.option@">
 				     \@formgroup.widget;noquote@
 					 \@formgroup.label;noquote@
-                                   </label>
-				   <br>
+				   </label><br>
 				 </formgroup>
-                 </div></div>
+                 </span>
 			   </noparse>
              </if>
 			 <else>
 			   <noparse>
-                 <span class="form-widget col-sm-10">
+                 <span class="form-widget">
                    <formwidget id="@elements.id@">
                  </span>
 			   </noparse>
              </else>							
 							
            <if @elements.help_text@ not nil>
-             <span class="col-sm-offset-2 col-sm-10 form-help-text">
-  	         <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+             <span class="form-help-text">
+	         <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
                  <noparse><formhelp id="@elements.id@"></noparse>
              </span> <!-- /form-help-text -->
            </if>
@@ -116,7 +112,7 @@
 			   </fieldset>
              </if>
 		   </if>
-		 </div> <!-- form-group -->
+		 </div> <!-- form-item-wrapper -->
        </else>
 	</else>
   </group>

@@ -38,16 +38,17 @@ set subsite_name [lang::util::localize [subsite::get_element -element instance_n
 template::head::add_meta \
     -name "viewport" \
     -content "width=device-width, initial-scale=1"
-template::head::add_meta \
-    -content "text/css" \
-    -http_equiv "content-style-type"
+#
+# The W3C validator (Nu HTML Checker) throws an error on meta-tag content-style-type
+#
+#template::head::add_meta -content "text/css" -http_equiv "content-style-type"
 
 if {[info exists context]}      { set context_bar [ad_context_bar {*}$context]}
 if {![info exists context_bar]} { set context_bar [ad_context_bar] }
 
 # clean out title and context bar for index page.
-if {[ad_conn url] eq "/" || [string match /index* [ad_conn url]] || [ad_conn url] eq "/community/"} { 
-    set context_bar {} 
+if {[ad_conn url] eq "/" || [string match /index* [ad_conn url]] || [ad_conn url] eq "/community/"} {
+    set context_bar {}
     set notitle 1
 }
 
@@ -86,3 +87,9 @@ security::csp::require script-src maxcdn.bootstrapcdn.com
 security::csp::require font-src 'self'
 security::csp::require font-src maxcdn.bootstrapcdn.com
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

@@ -5,9 +5,15 @@ ad_page_contract {
 } {
 }
 
-set version $::openacs_bootstrap3_theme::bootstrap_version
 set resource_info [::openacs_bootstrap3_theme::resource_info]
+set version [dict get $resource_info configuredVersion]
 
 set title "[dict get $resource_info resourceName] - Sitewide Admin"
 set context [list $title]
 
+
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:

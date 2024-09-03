@@ -12,8 +12,7 @@
                         <if @navigation.accesskey@ not nil> accesskey="@navigation.accesskey;noquote@"</if>
                         <if @navigation.tabindex@ not nil> tabindex="@navigation.tabindex;noquote@"</if>>
                         <if @navigation.display_template@ not nil>@navigation.display_template;noquote@</if>
-                        <else>@navigation.label@</else>
-                        <span class="caret"></span></a>
+                        <else>@navigation.label@</else></a>
                         <ul class="dropdown-menu">@navigation.submenu;noquote@</ul>
                     </li>
                 </if>

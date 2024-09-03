@@ -1,19 +1,14 @@
 #
-# Register some URNs that we are providing for sharing.
+# Register some URNs
 #
+::util::resources::register_urns -prefix openacs_bootstrap3_theme
 
-set version $::openacs_bootstrap3_theme::bootstrap_version
+template::register_urn \
+    -urn urn:ad:js:jquery \
+    -resource /resources/openacs-bootstrap3-theme/js/jquery-3.7.1.min.js
 
-#
-# Get resource info from this package. If not locally installed, offer
-# a link for download.
-#
-set resource_info [::openacs_bootstrap3_theme::resource_info]
-set prefix        [dict get $resource_info prefix]
-
-foreach URN [dict keys [dict get $resource_info urnMap]] {
-    ns_log notice "TEST -urn $URN -resource $prefix/[dict get $resource_info urnMap $URN]"
-    template::register_urn \
-	-urn $URN \
-	-resource $prefix/[dict get $resource_info urnMap $URN]
-}
+# Local variables:
+#    mode: tcl
+#    tcl-indent-level: 4
+#    indent-tabs-mode: nil
+# End:
